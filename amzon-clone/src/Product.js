@@ -12,10 +12,9 @@ export default function Product({title,image,price,rating}) {
             </p>
             <div className="product__rating">
                 {Array(rating).fill().map((_,i)=>(<p>⭐️</p>))}
-            
             </div>
         </div>
-        <img src="https://m.media-amazon.com/images/I/81SrwYY-6-L._AC_UL640_FMwebp_QL65_.jpg" alt="" />
+        <img src={image} alt="" />
         <button>Add to basket</button>
     </div>
   )
