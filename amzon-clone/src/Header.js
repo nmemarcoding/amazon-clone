@@ -11,18 +11,20 @@ export default function Header() {
     return (
         <div className="header">
            <Link to="/">
-           <img src='https://www.freepnglogos.com/uploads/amazon-png-logo-vector/woodland-gardening-amazon-png-logo-vector-8.png'
-           className="header__logo" alt=""></img>
+                <img src='https://www.freepnglogos.com/uploads/amazon-png-logo-vector/woodland-gardening-amazon-png-logo-vector-8.png'
+                className="header__logo" alt=""></img>
            </Link>
            <div className="header__search">
                 <input className="header__searchInput" type="text"/>   
                 <SearchIcon className="header__searchIcon"/>
             </div>
             <div className="header__nav">
-                <div className="header__option">
-                    <span className="heade__optionLineOne">Hello Guest</span>
-                    <span className="heade__optionLineTwo">Sign in</span>
-                </div>    
+                <Link to="/login">
+                    <div className="header__option">
+                        <span className="heade__optionLineOne">Hello Guest</span>
+                        <span className="heade__optionLineTwo">Sign in</span>
+                    </div>
+                </Link>    
                 <div className="header__option">
                     <span className="heade__optionLineOne">Return</span>
                     <span className="heade__optionLineTwo">& Order</span>
