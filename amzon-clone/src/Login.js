@@ -1,23 +1,39 @@
 import React, {  useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import "./Login.css"
 import{auth} from "./firebase";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Login() {
+    const navigate = useNavigate();
   const[email,setEmail] = useState(''); 
   const[password,setPassword] = useState('');
 
   const signIn = e=>{
+      
       e.preventDefault();
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        console.log(userCredential)
+        if(userCredential){
+            navigate('/')
+          }
+          
+        }).catch(error=>alert(error.message));
+
   }
 
   const register = e=>{
       e.preventDefault();
 
       createUserWithEmailAndPassword(auth,email,password)
-      .then((aout)=>{
-          console.log(aout);
+      .then((auth)=>{
+          console.log(auth);
+          if(auth){
+            navigate('/')
+          }
       })
       .catch(error=>alert(error.message))
   }
@@ -38,7 +54,7 @@ export default function Login() {
                 <h5>Password</h5>
                 <input type='password' value={password} onChange={e=>setPassword(e.target.value)}/>
 
-                <button className="login__signInButton" onclick={signIn}>Sing In</button>
+                <button className="login__signInButton" onClick={signIn}>Sing In</button>
             </form>
 
             <p>
