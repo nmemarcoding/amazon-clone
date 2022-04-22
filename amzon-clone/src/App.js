@@ -2,6 +2,7 @@ import "./App.css"
 import Header from './Header.js'
 import Home from './Home.js'
 import Checkout from './Checkout.js'
+import Payment from './Payment.js'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
@@ -39,7 +40,8 @@ function App() {
           <Route path="/login" element={<><Login/></>}/>
           <Route path="/Checkout" element={<><Header/><Checkout/></>}/>
           <Route path="/" element={<><Header/><Home/></>}/>
-          <Route path="*" element={<Header/>}/>     
+          <Route path="/payment" element={<><Header/><Payment/></>}/>
+          <Route path="*" element={<><Header/><Home/></>}/>     
         </Routes>
       </div>
     </Router>

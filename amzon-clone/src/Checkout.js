@@ -4,7 +4,10 @@ import { useStateValue } from './StateProvider';
 import Subtotal from './Subtotal.js'
 import CheckoutProduckt from './CheckoutProduckt.js'
 
+
+
 export default function Checkout() {
+    
     const [{basket,user},dispatch] = useStateValue();
 
 
