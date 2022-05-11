@@ -13,6 +13,7 @@ export default function Header() {
         if (user){
             signOut(auth)
         }
+        window.location.reload();
     }
     return (
         <div className="header">
